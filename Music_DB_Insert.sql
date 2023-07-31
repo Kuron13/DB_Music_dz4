@@ -45,13 +45,15 @@ INSERT INTO Album (album_title, album_year)
 VALUES ('Сердце', 2018), ('Пикник на обочине', 2020);
 INSERT INTO Album (album_title, album_year)
 VALUES ('Крещение огнём', 2003), ('Игра с огнём', 1989);
+INSERT INTO Album (album_title, album_year)
+VALUES ('Финник. Музыка из фильма', 2022);
 
 INSERT INTO ArtistAlbum (art_id, alb_id)
-VALUES (1, 1), (1, 2);
+VALUES (1, 1), (1, 2), (1, 11);
 INSERT INTO ArtistAlbum (art_id, alb_id)
 VALUES (2, 3);
 INSERT INTO ArtistAlbum (art_id, alb_id)
-VALUES (3, 4);
+VALUES (3, 4), (3, 11);
 INSERT INTO ArtistAlbum (art_id, alb_id)
 VALUES (4, 5), (4, 6);
 INSERT INTO ArtistAlbum (art_id, alb_id)
@@ -71,6 +73,8 @@ INSERT INTO Track (track_title, track_lenght, track_album_id)
 VALUES ('Сердце', 288, 7), ('Бесконечность', 305, 8), ('Летучая мышь', 265, 8), ('Мой рок-н-ролл', 252, 8);
 INSERT INTO Track (track_title, track_lenght, track_album_id)
 VALUES ('Колизей', 392, 9), ('Раскачаем этот мир', 361, 10);
+INSERT INTO Track (track_title, track_lenght, track_album_id)
+VALUES ('Прекрасный старый дом', 164, 11);
 
 INSERT INTO Collection (collection_title, collection_year)
 VALUES ('Энциклопедия Российского рока', 2001);

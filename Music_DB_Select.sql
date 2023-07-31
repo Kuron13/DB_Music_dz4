@@ -33,7 +33,10 @@ SELECT artist_name FROM Artist
 WHERE artist_name NOT LIKE '% %';
 
 SELECT track_title FROM Track
-WHERE track_title LIKE '%мой%' OR track_title LIKE '%Мой%' OR track_title LIKE '%my%' OR track_title LIKE '%My%';
+WHERE track_title ILIKE 'мой %' OR track_title ILIKE 'my %'
+	OR track_title ILIKE '% мой %' OR track_title ILIKE '% my %'
+	OR track_title ILIKE '% мой' OR track_title ILIKE '% my'
+	OR track_title ILIKE 'мой' OR track_title ILIKE 'my';
 
 /* Задание 3*/
 SELECT genre_title, COUNT (art_id) artist_q FROM Genre AS g
@@ -66,13 +69,12 @@ JOIN Artist a ON aal.art_id = a.artist_id
 WHERE artist_name LIKE 'Ария';
 
 /* Задание 4*/
-SELECT album_title, COUNT(*) FROM Album al
+SELECT DISTINCT album_title, COUNT(ag.gen_id), ag.art_id FROM Album al
 JOIN ArtistAlbum aal ON al.album_id = aal.alb_id
 JOIN Artist a ON aal.art_id = a.artist_id
 JOIN ArtistGenre ag ON a.artist_id = ag.art_id
-JOIN Genre g ON ag.gen_id = g.genre_id
-GROUP BY album_title
-HAVING COUNT(*) > 1;
+GROUP BY album_title, ag.art_id
+HAVING COUNT(ag.gen_id) > 1;
 
 SELECT track_title FROM Track t
 LEFT JOIN CollectionTracks ct ON t.track_id = ct.track_id
